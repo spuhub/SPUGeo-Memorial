@@ -211,6 +211,19 @@ class MemorialGenerator(QDialog, FORM_CLASS):
             if self.memorialDescritivoOdt.isChecked():
                 self.fullMemorialOdt = os.path.join(folder, prevNameFile + "_memorial.odt")
 
+    def checkMeridiano(self):
+
+        fuso = self.projectionEdit.text().split(" ")[3] [0:0]
+        meri = self.meridianoEdit.text()
+        fuso_dict = {'18': '-75', '19': '-69', '20': '-63', '21':'-57', '22':'-51', '23':'-45', '24':'-39', '25':'-33'}
+
+        if fuso in fuso_dict:
+            dec = fuso_dict[fuso]
+            if meri == fuso_dict:
+                return True
+            else:
+                return False
+
 
     def createFiles(self):
         """Create and rename files
@@ -272,7 +285,7 @@ class MemorialGenerator(QDialog, FORM_CLASS):
             self.storeConfigurationMemorial()
 
             if len(self.projectionEdit.text().split(" ")) < 3:
-                QMessageBox.information(self, self.tr("ERROR!"), self.tr("A camada selecionada não está em um sistema de projeção UTM"))
+                QMessageBox.information(self, self.tr("ERROR!"), self.tr("A camada selecionada não está em um sistema de projeção UTM."))
                 return
 
             criarArquivo = 1 #self.CheckMemorialGenerator()
