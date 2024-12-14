@@ -213,16 +213,15 @@ class MemorialGenerator(QDialog, FORM_CLASS):
 
     def checkMeridiano(self):
 
-        fuso = self.projectionEdit.text().split(" ")[3] [0:0]
+        fuso = self.projectionEdit.text().split(" ")[3][:-1]
+        print ("aqui",fuso)
         meri = self.meridianoEdit.text()
         fuso_dict = {'18': '-75', '19': '-69', '20': '-63', '21':'-57', '22':'-51', '23':'-45', '24':'-39', '25':'-33'}
 
         if fuso in fuso_dict:
             dec = fuso_dict[fuso]
-            if meri == fuso_dict:
-                return True
-            else:
-                return False
+            if meri != dec:
+                QMessageBox.information(self, self.tr('Attention!'), self.tr('O Meridiano Central pode está errado! Para o fuso ' + fuso + ' o Meridiano Central deveria ser ' + dec + '.'))
 
 
     def createFiles(self):
@@ -281,6 +280,7 @@ class MemorialGenerator(QDialog, FORM_CLASS):
         self.identification = self.creaEdit.text()
 
         self.copyAndRenameFiles()
+        print(self.checkMeridiano())
         try:
             self.storeConfigurationMemorial()
 
