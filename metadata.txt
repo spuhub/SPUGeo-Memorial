@@ -8,17 +8,17 @@
 
 [general]
 name=SPUGeo Memorial
-qgisMinimumVersion=3.16
+qgisMinimumVersion=3.34
 description=Generates descriptive memorials in the format of the SPU of the Federal Government of Brazil
-version=1.1
-author=Guilherme Henrique
-email=guilherme.nascimento@planejamento.gov.br
+version=1.2
+author=SPU
+email=guilherme.henrique.nasc@gmail.com
 
 about=Calculates azimuths and distances for a selected feature. The feature can be either a line or a polygon. Generates descriptive memorials in the format of the SPU of the Federal Government of Brazil. This add-on is a modified version of the Azimuth Distance Calculator plugin.
 
 
-tracker=https://github.com/guilhermehrn/spugeo-memorial/issues
-repository=https://github.com/guilhermehrn/spugeo-memorial.git
+tracker=https://github.com/spuhub/SPUGeo-Memorial/issues
+repository=https://github.com/spuhub/SPUGeo-Memorial.git
 # End of mandatory metadata
 
 # Recommended items:
@@ -36,13 +36,19 @@ changelog= Version 0.2 (11/14/2018):
             Version 1.1 (05/01/2022):
                 - library update.
                 - Class Factory bug fix.
+            version 1.2 (13/12/204):
+                - Lybrary update.
+                - Author update.
+                - Restriction on UTM projection systems.
+                - Update of the descriptive memorial generation form.
+                - bug fix.
 
 
 
 # Tags are comma separated with spaces allowed
 tags=descriptive memorials, azimuths
 
-homepage=https://github.com/guilhermehrn/spugeomemorial.git
+homepage=https://github.com/spuhub/SPUGeo-Memorial
 category=Plugins
 icon=icon.png
 # experimental flag
